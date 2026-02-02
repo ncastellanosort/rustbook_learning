@@ -21,7 +21,8 @@ fn vectores() {
     let dos = v2.get(2); // devuelve un Option<&T>
 
     // iteracion
-    for i in &mut v2 { // son listas de referencias 
+    for i in &mut v2 {
+        // son listas de referencias
         *i += 50; // dereferenciamos el puntero para acceder al valor
     }
 }
@@ -60,9 +61,9 @@ fn ejemplo_hashmaps() {
     // acceder a un valor
     let nombre_equipo = String::from("Azul");
     let puntaje = puntajes.get(&nombre_equipo); // devuelve Option<i32>
-    
+
     match puntaje {
-       Some(n) => println!("puntaje = {n}"),
-       None => println!("no hay puntaje"),
+        Some(n) => println!("puntaje = {n}"),
+        None => println!("no hay puntaje"),
     }
 }

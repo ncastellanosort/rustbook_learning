@@ -58,12 +58,11 @@ fn ejemplo_expect_unwrap() {
     let mut s = String::new();
     let mut s2 = String::new();
 
-    // permite poner un mensaje en el panic 
+    // permite poner un mensaje en el panic
     stdin().read_line(&mut s).expect("Error reading line");
 
     // manda el panic! y acaba la ejecucion del programa
     stdin().read_line(&mut s2).unwrap();
-
 }
 
 // --------------------- ERRORES CON ?  ----------------------
@@ -81,9 +80,9 @@ use std::io::Write;
 // el Result de devuelta es ()
 pub fn guardar_log(mensaje: &str) -> Result<(), std::io::Error> {
     let mut archivo = File::create("log.txt")?;
-    
+
     archivo.write_all(mensaje.as_bytes())?;
-    
+
     Ok(()) // devolvemos un Ok(()) -> salio bien
 }
 // --------------------- BOX DYN  ----------------------
@@ -111,12 +110,11 @@ use std::error::Error;
 use std::fs;
 
 pub fn operacion_mixta() -> Result<(), Box<dyn Error>> {
-    
     // 1. Esto devuelve un std::io::Error
-    let texto = fs::read_to_string("id.txt")?; 
+    let texto = fs::read_to_string("id.txt")?;
 
     // 2. Esto devuelve un std::num::ParseIntError
-    let numero: i32 = texto.trim().parse()?; 
+    let numero: i32 = texto.trim().parse()?;
 
     // 3. ¡Incluso podemos lanzar nuestro propio error de String!
     if numero < 0 {
@@ -126,4 +124,3 @@ pub fn operacion_mixta() -> Result<(), Box<dyn Error>> {
     println!("ID procesado: {}", numero);
     Ok(())
 }
-
