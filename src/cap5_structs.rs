@@ -1,12 +1,11 @@
 #[derive(Debug)]
 pub struct Usuario {
     pub nombre: String,
-    pub activo: bool
+    pub activo: bool,
 }
 
-
 // --------------------- TUPLE STRUCTS  ----------------------
-/* 
+/*
  * se usan cuando se quiere que la struct tenga un nombre (para que sea un tipo diferente a los
  * otros) pero por el momento los nombres de los campos no son necesarios
 */
@@ -14,12 +13,12 @@ pub struct Usuario {
 pub struct Color(i32, i32, i32);
 
 fn ejemplo_tuple_structs() {
-    let negro_rgb = Color(0,0,0);
+    let negro_rgb = Color(0, 0, 0);
     println!("valor del negro en el verde es: {}", negro_rgb.0);
 }
 
 // --------------------- UNIT-LIKE STRUCTS  ----------------------
-/* 
+/*
  * fundamentales para el uso de los traits (CAP. 10)
  * se usan cuando se necesita implementar un comportamiento en algun tipo, pero no se necesita que
  * ese tipo guarde ningun dato
@@ -29,21 +28,17 @@ fn ejemplo_tuple_structs() {
 
 struct SiempreIgual;
 
-
 // es un atributo para poder imprimir bien el struct
 #[derive(Debug)]
 pub struct Rectangulo {
     pub ancho: i32,
-    pub alto: i32
+    pub alto: i32,
 }
 
 impl Rectangulo {
     // associated function, como una funcion static
     pub fn new(ancho: i32, alto: i32) -> Self {
-        Rectangulo {
-            ancho,
-            alto
-        }
+        Rectangulo { ancho, alto }
     }
 
     fn calcular_area(&self) -> i32 {
@@ -58,7 +53,7 @@ impl Rectangulo {
 pub fn struct_ejemplo() {
     let mut u1 = Usuario {
         nombre: String::from("Nicolas"),
-        activo: true
+        activo: true,
     };
 
     // setear atributos
@@ -71,5 +66,4 @@ pub fn struct_ejemplo() {
     r1.set_ancho(5);
 
     println!("area de {:?} es {}", r1, r1.calcular_area());
-
 }

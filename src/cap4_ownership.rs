@@ -58,7 +58,6 @@ pub fn mutabilidad_peligrosa() {
     println!("r3 = {}", r3);
 }
 
-
 // --------------------- SLICES  ----------------------
 /*
  * imaginemos un String con la frase "Hola mundo" donde solo quiero la primera palabra

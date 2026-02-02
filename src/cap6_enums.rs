@@ -4,10 +4,9 @@
  * */
 #[derive(Debug)]
 pub enum IpAddr {
-    // se denominan variantes 
-
-    V4(u8, u8 ,u8 ,u8), // guarda 4 numeros
-    V6(String) // guarda un String
+    // se denominan variantes
+    V4(u8, u8, u8, u8), // guarda 4 numeros
+    V6(String),         // guarda un String
 }
 
 pub fn ejemplo_enum_datos() {
@@ -40,14 +39,15 @@ pub fn ejemplo_option() {
 
 enum Moneda {
     Peso,
-    Dolar(f64)
+    Dolar(f64),
 }
 
 fn valor_en_centavos(moneda: Moneda) -> u32 {
     match moneda {
         Moneda::Peso => 100,
-        Moneda::Dolar(valor) => { // asigna el f64 a una variable temporable llamada "valor" para
-                                  // usarla en este bloque
+        Moneda::Dolar(valor) => {
+            // asigna el f64 a una variable temporable llamada "valor" para
+            // usarla en este bloque
             println!("valor del dolar es {}", valor);
             (valor * 100.0) as u32
         }
@@ -68,10 +68,11 @@ fn ejemplo_if_let() {
 }
 
 // --------------------- OPTION Y NONE ----------------------
-fn duplicar(numero: Option<i32>) -> i32 { // depronto recibe un numero
+fn duplicar(numero: Option<i32>) -> i32 {
+    // depronto recibe un numero
     match numero {
         Some(n) => n * 2, // n es el numero que se desempaca del Option
-        None => 0
+        None => 0,
     }
 }
 
@@ -80,17 +81,17 @@ fn duplicar(numero: Option<i32>) -> i32 { // depronto recibe un numero
 enum EstadoServidor {
     Online(String),
     Offline,
-    Manteminiento(u32)
+    Manteminiento(u32),
 }
 
 fn procesar_estado_servidor(servidor: EstadoServidor) {
     match servidor {
         EstadoServidor::Online(url) => {
             println!("server online: {}", url);
-        },
+        }
         EstadoServidor::Manteminiento(horas) => {
             println!("quedan {}h para el mantenimiento", horas);
-        },
+        }
         _ => println!("opcion desconocida"),
     }
 }
