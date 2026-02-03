@@ -100,6 +100,10 @@ fn crear_animal_misterioso() -> impl Sonido {
 /*
  * la idea de los lifetimes es evitar las "dangling references"
  * significa apuntar a algo que ya fue borrado en memoria
+ *
+ * se deben usar cuando:
+ * 1. funciones que reciben o devuelven referencias
+ * 2. hay mas de una referencia de entrada
  * */
 
 fn scope_ejemplo() {
@@ -108,19 +112,10 @@ fn scope_ejemplo() {
         let x = 5;
         r = &x; // r -> x
     } // x sale de scope y r no queda apuntando a nada
-    println!("{r}"); // r esta apuntando a algo que ya no existe
+    println!("{}", r); // r esta apuntando a algo que ya no existe
 }
 
-// que pasa si una funcion recibe 2 referencias y devuelve una?
-// rust se pregunta...
-// la referencia que devuelvo viene del parametro A o del parametro B?
-
-/*
- * le estoy diciendo a rust que la referencia que va a devolver (&'a str)
- * va a vivir exactamente lo mismo que el parametro que viva menos
- *
- * con eso no permite usar el resultado de longest() si alguna de las entradas ya murio
- *  */
-fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
-    if x.len() > y.len() { x } else { y }
+// seguir explicacion
+fn elegir<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if true { x } else { y }
 }
