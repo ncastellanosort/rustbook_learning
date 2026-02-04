@@ -32,6 +32,7 @@ mod tests {
     fn division_ok() -> Result<(), String> {
         let result = division(10, 2)?;
         assert_eq!(result, 5);
+
         Ok(())
     }
 }
